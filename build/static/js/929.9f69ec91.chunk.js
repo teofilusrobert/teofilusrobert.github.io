@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_portfolio=self.webpackChunkreact_portfolio||[]).push([[929],{9929:(e,o,r)=>{r.r(o);r(1049),r(2833),r(1418),r(1878),r(4207),r(5231),r(3989),r(3646),r(3960),r(464),r(4821),r(5159)}}]);

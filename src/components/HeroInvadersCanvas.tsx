@@ -10,10 +10,18 @@ type Enemy = Text & {
 
 const ABOUT_TEXTS = [
   "Frontend Dev",
-  "React Expert",
-  "8 yrs Experience",
+  "Javascript Lover",
+  "ReactJs",
+  "React Native",
+  "Typescript",
+  "NextJs",
+  "8+ yrs Experience",
   "Loves Clean UI",
-  "Indonesia",
+  "Salatiga, ID",
+  "QA Testing",
+  "UIUX",
+  "Problem Solver",
+  "Creative Thinker",
 ];
 
 export default function HeroInvadersCanvas() {
@@ -76,8 +84,8 @@ export default function HeroInvadersCanvas() {
         const enemy = new Text({text: text, style: style}) as Enemy;
         enemy.x = 100 + i * 120;
         enemy.y = 50 + Math.random() * 100;
-        enemy.vx = (Math.random() - 0.5) * 1.5;
-        enemy.vy = (Math.random() - 0.5) * 1.5;
+        enemy.vx = (Math.random() - 0.5) * 3;
+        enemy.vy = (Math.random() - 0.5) * 4;
         enemy.evadeFactor = 0.8 + Math.random() * 0.6; // Between 0.8 and 1.4
         enemy.dodgeCooldown = 0; // ready to dodge
         app.stage.addChild(enemy);
@@ -120,7 +128,7 @@ export default function HeroInvadersCanvas() {
           // Evasion from bullet path
           const bulletLineX = player.x + player.width / 2;
           const dx = enemy.x + enemy.width / 2 - bulletLineX;
-          const avoidRange = 60;
+          const avoidRange = 100;
 
           if (Math.abs(dx) < avoidRange) {
             if (enemy.dodgeCooldown <= 0) {
@@ -130,6 +138,7 @@ export default function HeroInvadersCanvas() {
               // Add tiny randomness so they don't all pick the exact same direction
               const direction = dx + (Math.random() - 0.5) * 10;
               enemy.vx += direction > 0 ? basePush : -basePush;
+              enemy.vy *= -1;
 
                // Add delay before next dodge
               enemy.dodgeCooldown = 10 + Math.random() * 10; // delay in frames (~0.3s)
@@ -142,8 +151,8 @@ export default function HeroInvadersCanvas() {
           }
 
           // Apply some damping (friction) to keep them from speeding up forever
-          if (enemy.vx > 1) {
-            enemy.vx *= 0.95;
+          if (enemy.vx > 2) {
+            enemy.vx *= 0.99;
           }
         });
 
